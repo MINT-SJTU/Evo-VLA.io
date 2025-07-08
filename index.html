@@ -137,7 +137,7 @@ We design five spatially challenging tasks that require precise spatial understa
 <!-- End paper abstract -->
 
 <!-- Single fixed image display -->
-<section class="section">
+<section class="section" style="padding-bottom: 1rem;">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Architecture of Evo-0</h2>
     <img src="static/images/model.png" alt="Result Image" style="max-width: 100%; height: auto;">
@@ -145,16 +145,61 @@ We design five spatially challenging tasks that require precise spatial understa
 </section>
 
 <!-- Single fixed image display -->
-<section class="section">
+<section class="section" style="padding-bottom: 1rem;">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Tasks setup</h2>
     <img src="static/images/task_setup_3.jpg" alt="Result Image" style="max-width: 100%; height: auto;">
   </div>
 </section>
+<section class="section" style="padding-bottom: 1rem;">
+  <div class="container is-max-desktop">
+    <ol class="content has-text-justified">
+      <li>
+        <strong>Centering a cylinder on a target.</strong><br>
+        
+        The robot is required to align a cylindrical object precisely at the center of a marked target area on the table.
+        This task resembles target shooting: the target has concentric rings, and scoring is based on which ring the center of the cylinder falls into.
+        The closer to the center, the higher the score.
+      </li>
+
+      <li>
+        <strong>Peg-in-hole insertion.</strong><br>
+        This task requires the robot to insert a cylindrical peg into one of three tightly fitting holes on a board.
+        This necessitates accurate alignment in 3D space, as small tilting or offset could cause task failure.
+      </li>
+
+      <li>
+        <strong>Middle bottle grasping.</strong><br>
+        Three bottles are closely placed in a row, and the robot is instructed to pick the middle one.
+        This setup mimics a grocery store scenario, where items are densely arranged on shelves.
+        Success is defined as picking up the middle bottle without touching or knocking over the adjacent ones.
+      </li>
+
+      <li>
+        <strong>Can pick-and-place.</strong><br>
+        In this task, the robot must pick up a standard can and place it in a designated spot on a shelf.
+        The location of the placement is varied across trials in both position and height, requiring the model to generalize spatial understanding to different configurations.
+      </li>
+
+      <li>
+        <strong>Transparent object pick-and-place.</strong><br>
+        The task setup is similar to the previous one, but involves transparent objects such as glass bottles.
+        This presents additional challenge, since transparent materials are often poorly captured by RGB sensors and are prone to glare, making them difficult to perceive and localize.
+      </li>
+    </ol>
+  </div>
+</section>
+<section class="section" style="padding-bottom: 1rem;">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Qualitative results of our model in real-world tasks</h2>
+    <img src="static/images/task_results.png" alt="Result Image" style="max-width: 100%; height: auto;">
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Comparison Videos (10x)</h2>
+    <h2 class="title is-3 has-text-centered">Continuous Rollouts without Clipping (10x)</h2>
 
     <!-- Group 1 -->
     <div class="columns is-vcentered">
