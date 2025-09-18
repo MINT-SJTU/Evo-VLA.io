@@ -58,6 +58,9 @@
           <span class="author-block"><a href="#" target="_blank"><b>Gen Li</b></a><sup>*</sup>,</span>
           <span class="author-block"><a href="#" target="_blank"><b>Yilei Zhong</b></a>,</span>
           <span class="author-block"><a href="#" target="_blank"><b>Yanwen Zou</b></a>,</span>
+          <span class="author-block"><a href="#" target="_blank"><b>Yuxin Du</b></a>,</span>
+          <span class="author-block"><a href="#" target="_blank"><b>Jiting Liu</b></a>,</span>
+          <span class="author-block"><a href="#" target="_blank"><b>Encheng Gu</b></a>,</span>
           <span class="author-block"><a href="#" target="_blank"><b>Bo Zhao</b></a><sup>†</sup></span>
         </div>
 
@@ -66,7 +69,9 @@
                   <span class="author-block">
                     <sup>1</sup>School of AI, Shanghai Jiao Tong University, 
                     <sup>2</sup>EvoMind Tech, 
-                    <sup>3</sup>IAAR-Shanghai<br>
+                    <sup>3</sup>IAAR-Shanghai,
+                    <sup>4</sup>University of Cambridge
+                    <br>
                   </span>
                   <span class="eql-cntrb">
                     <small><br><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small>
@@ -124,10 +129,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Vision-Language-Action (VLA) models have emerged as a promising framework for enabling generalist robots capable of perceiving, reasoning, and acting in the real world. These models usually build upon pretrained Vision-Language Models (VLMs), which excel at semantic understanding due to large-scale text pretraining. However, VLMs typically lack precise spatial understanding capabilities, as they are primarily tuned on 2D image-text pairs without 3D supervision. 
-To address this limitation, recent approaches have incorporated explicit 3D inputs such as point clouds or depth maps, but this necessitates additional depth sensors or defective estimation.
-In contrast, our work introduces a plug-and-play module that implicitly injects 3D geometry features into VLA models by leveraging an off-the-shelf visual geometry foundation models. 
-We design five spatially challenging tasks that require precise spatial understanding ability to validate effectiveness of our method. Extensive evaluations show that our method significantly improves the performance of state-of-the-art VLA models across diverse scenarios.
+Vision-Language-Action (VLA) models have emerged as a promising framework for enabling generalist robots capable of perceiving, reasoning, and acting in the real world. These models usually build upon pretrained Vision-Language Models (VLMs), which excel at semantic understanding due to large-scale image and text pretraining. However, existing VLMs typically lack precise spatial understanding capabilities, as they are primarily tuned on 2D image-text pairs without 3D supervision. 
+To address this limitation, recent approaches have incorporated explicit 3D inputs such as point clouds or depth maps, but this necessitates additional depth sensors or pre-trained depth estimation models, which may yield defective results.
+In contrast, our work introduces a plug-and-play module that implicitly incorporates 3D geometry features into VLA models by leveraging an off-the-shelf visual geometry foundation model.
+This integration provides the model with depth-aware visual representations, improving its ability to understand the geometric structure of the scene and the spatial relationships among objects from RGB images alone. 
+We evaluate our method on a set of spatially challenging tasks in both simulation and the real world. Extensive evaluations show that our method significantly improves the performance of state-of-the-art VLA models across diverse scenarios.
           </p>
         </div>
       </div>
@@ -140,14 +146,22 @@ We design five spatially challenging tasks that require precise spatial understa
 <section class="section" style="padding-bottom: 1rem;">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Architecture of Evo-0</h2>
-    <img src="static/images/model.png" alt="Result Image" style="max-width: 100%; height: auto;">
+    <img src="static/images/Evo0_model.png" alt="Result Image" style="max-width: 100%; height: auto;">
   </div>
 </section>
 
 <!-- Single fixed image display -->
 <section class="section" style="padding-bottom: 1rem;">
   <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">Tasks setup</h2>
+    <h2 class="title is-3">Simulation Experiments</h2>
+    <img src="static/images/rlbench.png" alt="Result Image" style="max-width: 100%; height: auto;">
+  </div>
+</section>
+
+<!-- Single fixed image display -->
+<section class="section" style="padding-bottom: 1rem;">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Real-world Experiments</h2>
     <img src="static/images/task_setup_3.jpg" alt="Result Image" style="max-width: 100%; height: auto;">
   </div>
 </section>
@@ -172,7 +186,7 @@ We design five spatially challenging tasks that require precise spatial understa
         <strong>Middle bottle grasping.</strong><br>
         Three bottles are closely placed in a row, and the robot is instructed to pick the middle one.
         This setup mimics a grocery store scenario, where items are densely arranged on shelves.
-        Success is defined as picking up the middle bottle without touching or knocking over the adjacent ones.
+        Success is defined as picking up the middle bottle without knocking over the adjacent ones.
       </li>
 
       <li>
